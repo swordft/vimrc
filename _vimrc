@@ -71,7 +71,7 @@ let python_highlight_all=1
 syntax on
 
 "PEP8代码缩进
-au BufNewFile,BufRead *.py
+"au BufNewFile,BufRead *.py
 \ set tabstop=4
 \ set softtabstop=4
 \ set shiftwidth=4
@@ -80,13 +80,12 @@ au BufNewFile,BufRead *.py
 \ set autoindent
 \ set fileformat=unix
 
-
+"NERD
 let NERDTreeWinSize=20
 let NERDTreeWinPos="left"
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 " 快捷键的配置
-nmap <F6> :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+nmap <F5> :NERDTreeToggle<CR>
 
 "访问系统剪切板
 set clipboard=unnamed
@@ -95,10 +94,10 @@ set clipboard=unnamed
 set nu
 
 "标识不必要的空白
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 "ctrlp
-set runtimepath^=$VIM/bundle/ctrlp.vim
+"set runtimepath^=$VIM/bundle/ctrlp.vim
 
 "  Gvim中文菜单乱码解决方案
 " 设置文件编码格式
@@ -132,5 +131,9 @@ autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 "映射tagbar的快捷键
 map <F8> :TagbarToggle<CR>
 
+"字体大小
+set guifont=set guifont=DejaVu\ Sans\ Mono:h11
 
-"ctags
+"空白高亮
+hi BadWhitespace guifg=gray guibg=red ctermfg=gray ctermbg=red
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
